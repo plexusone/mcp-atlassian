@@ -3,8 +3,8 @@
 ## Requirements
 
 - Go 1.24 or later
-- A Confluence Cloud or Data Center instance
-- Confluence API token (Cloud) or credentials (Data Center)
+- An Atlassian Cloud or Data Center instance (Confluence, Jira, or both)
+- Atlassian API token (Cloud) or credentials (Data Center)
 
 ## Install from Source
 
@@ -38,6 +38,7 @@ go get github.com/plexusone/mcp-atlassian
 
 | Package | Description |
 |---------|-------------|
-| `storage` | IR types, render, parse, validate for Confluence Storage Format |
-| `confluence` | REST API client with IR integration |
-| `mcpserver` | MCP server implementation |
+| `skills/confluence` | Confluence omniskill — 8 tools for page operations |
+| `skills/jira` | Jira omniskill — 18 tools for issue tracking, agile, and reporting |
+
+The underlying Confluence and Jira client libraries live in [Go-Atlassian](https://github.com/grokify/go-atlassian).

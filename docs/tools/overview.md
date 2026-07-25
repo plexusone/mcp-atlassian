@@ -2,7 +2,9 @@
 
 This server provides 26 tools for working with Confluence pages and Jira issues.
 
-## Reading Pages
+## Confluence Tools
+
+### Reading Pages
 
 ### confluence_read_page
 
@@ -63,7 +65,7 @@ Read a page as raw Storage Format XHTML.
 
 Use this when you need to preserve complex formatting or debug parsing issues.
 
-## Writing Pages
+### Writing Pages
 
 ### confluence_create_page
 
@@ -138,7 +140,7 @@ Update a page with raw Storage Format XHTML.
 
 Use this when you need to preserve complex formatting.
 
-## Tables
+### Tables
 
 ### confluence_create_table
 
@@ -166,7 +168,7 @@ Create a table block from structured data.
 }
 ```
 
-## Other Operations
+### Other Operations
 
 ### confluence_delete_page
 
@@ -200,3 +202,38 @@ Search pages using CQL (Confluence Query Language).
   }
 }
 ```
+
+## Jira Tools
+
+### Issues
+
+| Tool | Description |
+|------|-------------|
+| `jira_get_issue` | Get a Jira issue by key |
+| `jira_search` | Search issues using JQL |
+| `jira_create_issue` | Create a new issue |
+| `jira_update_issue` | Update issue fields |
+| `jira_clone_issue` | Clone an existing issue |
+| `jira_bulk_update` | Bulk update multiple issues |
+| `jira_add_comment` | Add a comment to an issue |
+| `jira_get_comments` | Get comments on an issue |
+| `jira_get_transitions` | List available transitions for an issue |
+| `jira_transition_issue` | Transition an issue to a new status |
+| `jira_move_to_sprint` | Move issues to a sprint |
+
+### Projects & Boards
+
+| Tool | Description |
+|------|-------------|
+| `jira_get_projects` | List available projects |
+| `jira_get_boards` | List Scrum/Kanban boards |
+| `jira_get_sprints` | List sprints for a board |
+
+### Reports
+
+| Tool | Description |
+|------|-------------|
+| `jira_velocity_report` | Velocity report for a board |
+| `jira_burndown_report` | Sprint burndown report |
+| `jira_worklog_report` | Work log report for issues |
+| `jira_cycle_time_report` | Cycle time analysis |

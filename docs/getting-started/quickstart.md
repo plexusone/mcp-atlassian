@@ -12,7 +12,7 @@ Add to your Claude Desktop configuration file:
 ```json
 {
   "mcpServers": {
-    "confluence": {
+    "atlassian": {
       "command": "/path/to/mcp-atlassian",
       "env": {
         "ATLASSIAN_URL": "https://example.atlassian.net",
@@ -30,12 +30,16 @@ Close and reopen Claude Desktop to load the new configuration.
 
 ### 3. Start Using
 
-You can now ask Claude to interact with Confluence:
+You can now ask Claude to interact with Confluence and Jira:
 
 - "Read the Confluence page with ID 12345"
 - "Search for pages about authentication"
 - "Create a new page in TEAM space titled 'Meeting Notes'"
 - "Update page 12345 with a new table"
+- "Search for open Jira bugs in project FOO"
+- "Create a new Story in project PROJ"
+- "Transition PROJ-123 to Done"
+- "Show velocity report for board 42"
 
 ## Using the CLI
 

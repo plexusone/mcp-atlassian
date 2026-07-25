@@ -1,15 +1,15 @@
 # Setup
 
-## Get Your Confluence Credentials
+## Get Your Atlassian Credentials
 
-### Confluence Cloud
+### Atlassian Cloud
 
 1. Go to [Atlassian Account Settings](https://id.atlassian.com/manage-profile/security/api-tokens)
 2. Create a new API token
 3. Note your email address (username)
-4. Note your Confluence URL (e.g., `https://example.atlassian.net`)
+4. Note your Atlassian URL (e.g., `https://example.atlassian.net`)
 
-### Confluence Data Center
+### Atlassian Data Center
 
 Use your regular username and password, or configure an application link.
 
@@ -38,18 +38,18 @@ For production use, store credentials in a vault:
 ```bash
 # 1Password
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
-mcp-atlassian --vault op://MyVault --credentials-name confluence \
+mcp-atlassian --vault op://MyVault --credentials-name atlassian \
                --base-url https://example.atlassian.net
 
 # Bitwarden
 export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
-mcp-atlassian --vault bw://org-id --credentials-name confluence \
+mcp-atlassian --vault bw://org-id --credentials-name atlassian \
                --base-url https://example.atlassian.net
 
 # Keeper
 export KSM_TOKEN="US:..."
-mcp-atlassian --vault keeper:// --credentials-name confluence \
+mcp-atlassian --vault keeper:// --credentials-name atlassian \
                --base-url https://example.atlassian.net
 ```
 

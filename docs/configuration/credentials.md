@@ -48,7 +48,7 @@ Use [omnitoken](https://github.com/plexusone/omnitoken) with vault backends for 
 
 ```bash
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
-mcp-atlassian --vault op://MyVault --credentials-name confluence \
+mcp-atlassian --vault op://MyVault --credentials-name atlassian \
                --base-url https://example.atlassian.net
 ```
 
@@ -57,7 +57,7 @@ mcp-atlassian --vault op://MyVault --credentials-name confluence \
 ```bash
 export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
-mcp-atlassian --vault bw://org-id --credentials-name confluence \
+mcp-atlassian --vault bw://org-id --credentials-name atlassian \
                --base-url https://example.atlassian.net
 ```
 
@@ -65,7 +65,7 @@ mcp-atlassian --vault bw://org-id --credentials-name confluence \
 
 ```bash
 export KSM_TOKEN="US:..."
-mcp-atlassian --vault keeper:// --credentials-name confluence \
+mcp-atlassian --vault keeper:// --credentials-name atlassian \
                --base-url https://example.atlassian.net
 ```
 
@@ -74,7 +74,7 @@ mcp-atlassian --vault keeper:// --credentials-name confluence \
 For local development:
 
 ```bash
-mcp-atlassian --vault file:///path/to/secrets --credentials-name confluence \
+mcp-atlassian --vault file:///path/to/secrets --credentials-name atlassian \
                --base-url https://example.atlassian.net
 ```
 

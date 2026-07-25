@@ -92,7 +92,7 @@ Configure Claude Desktop to use the Atlassian MCP Server.
 | `ATLASSIAN_USERNAME` | Atlassian username/email |
 | `ATLASSIAN_API_TOKEN` | Atlassian API token |
 | `OMNITOKEN_VAULT_URI` | Vault URI (e.g., `op://MyVault`) |
-| `OMNITOKEN_CREDENTIALS_NAME` | Credential name in vault (default: `confluence`) |
+| `OMNITOKEN_CREDENTIALS_NAME` | Credential name in vault (default: `atlassian`) |
 | `OP_SERVICE_ACCOUNT_TOKEN` | 1Password service account token |
 | `BW_ACCESS_TOKEN` | Bitwarden access token |
 | `BW_ORGANIZATION_ID` | Bitwarden organization ID |
@@ -171,7 +171,10 @@ cat ~/Library/Application\ Support/Claude/claude_desktop_config.json | python3 -
 Once configured, you can ask Claude to:
 
 - "Read Confluence page 12345"
-- "Search for pages about authentication"
+- "Search for Confluence pages about authentication"
 - "Create a new page in TEAM space"
 - "Update page 12345 with a status table"
-- "Delete page 67890"
+- "Search for open Jira bugs in project FOO"
+- "Create a new Story in project PROJ"
+- "Transition PROJ-123 to Done"
+- "Show velocity report for board 42"
