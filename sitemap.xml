@@ -1,55 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/configuration/claude-desktop/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/configuration/claude-desktop/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/configuration/credentials/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/configuration/credentials/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/configuration/environment/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/configuration/environment/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/getting-started/installation/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/getting-started/installation/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/getting-started/quickstart/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/getting-started/quickstart/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/getting-started/setup/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/getting-started/setup/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/releases/changelog/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/releases/changelog/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/releases/v0.1.0/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/releases/v0.1.0/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/releases/v0.2.0/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/releases/v0.2.0/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/storage-format/blocks/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/releases/v0.3.0/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/storage-format/overview/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/storage-format/blocks/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
     <url>
-         <loc>https://plexusone.github.io/mcp-confluence/tools/overview/</loc>
-         <lastmod>2026-05-25</lastmod>
+         <loc>https://plexusone.github.io/mcp-atlassian/storage-format/overview/</loc>
+         <lastmod>2026-07-25</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/mcp-atlassian/tools/overview/</loc>
+         <lastmod>2026-07-25</lastmod>
     </url>
 </urlset>
