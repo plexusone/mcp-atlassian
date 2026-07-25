@@ -1,11 +1,53 @@
 {
   "irVersion": "1.0",
-  "project": "mcp-confluence",
-  "repository": "https://github.com/plexusone/mcp-confluence",
+  "project": "mcp-atlassian",
+  "repository": "https://github.com/plexusone/mcp-atlassian",
   "versioning": "semver",
   "commitConvention": "conventional",
   "maintainers": ["grokify", "johncwang@gmail.com"],
   "releases": [
+    {
+      "version": "v0.3.0",
+      "date": "2026-07-25",
+      "highlights": [
+        { "description": "Jira skill with 18 MCP tools for issues, agile boards, sprints, and reports" },
+        { "description": "Dual-skill MCP server combining Confluence and Jira under shared Atlassian auth" },
+        { "description": "Module renamed from mcp-confluence to mcp-atlassian" }
+      ],
+      "breaking": [
+        { "description": "Module path changed from `github.com/plexusone/mcp-confluence` to `github.com/plexusone/mcp-atlassian`", "commit": "ba614cd" },
+        { "description": "Removed `confluence/`, `storage/`, `mcpserver/`, and `cmd/mcp-confluence/` packages (migrated to `github.com/grokify/go-atlassian`)", "commit": "ba614cd" }
+      ],
+      "upgradeGuide": [
+        { "description": "Update import paths from `mcp-confluence` to `mcp-atlassian`" },
+        { "description": "Update `go install` path to `github.com/plexusone/mcp-atlassian/cmd/mcp-atlassian@latest`" },
+        { "description": "Update env var `CONFLUENCE_BASE_URL` to `ATLASSIAN_URL` (no `/wiki` suffix)" },
+        { "description": "Update Claude Desktop server key from `confluence` to `atlassian`" }
+      ],
+      "added": [
+        { "description": "Jira omniskill with 18 tools: search, create, update, clone, bulk-update, transitions, boards, sprints, velocity, burndown, worklog, and cycle-time reports", "commit": "502cc47" },
+        { "description": "Dual-skill `cmd/mcp-atlassian` server with shared Atlassian auth, stdio and HTTP modes, OAuth 2.1/PKCE, and optional ngrok tunneling", "commit": "502cc47" }
+      ],
+      "changed": [
+        { "description": "Module renamed from `mcp-confluence` to `mcp-atlassian`", "commit": "ba614cd" },
+        { "description": "Env var `CONFLUENCE_BASE_URL` replaced by `ATLASSIAN_URL` (no `/wiki` suffix)", "commit": "ec335e5" }
+      ],
+      "refactored": [
+        { "description": "Removed `confluence/`, `storage/`, `mcpserver/`, and `cmd/mcp-confluence/` packages migrated to `github.com/grokify/go-atlassian`", "commit": "ba614cd" }
+      ],
+      "dependencies": [
+        { "description": "Upgrade `github.com/grokify/go-atlassian` to v0.32.0", "commit": "fc3ec27" },
+        { "description": "Upgrade `github.com/plexusone/omniskill` from v0.8.0 to v0.9.0", "commit": "659f17c" },
+        { "description": "Update all transitive dependencies", "commit": "b26aa09" }
+      ],
+      "documentation": [
+        { "description": "Rename all docs from mcp-confluence to mcp-atlassian, add Jira tools", "commit": "ec335e5" },
+        { "description": "Update credential names from confluence to atlassian", "commit": "f931c7c" },
+        { "description": "Complete Confluence-to-Atlassian rename across remaining docs", "commit": "1979825" },
+        { "description": "Add emoji icons to README feature bullets", "commit": "07e9053" },
+        { "description": "Update README shields", "commit": "8fb8454" }
+      ]
+    },
     {
       "version": "v0.2.0",
       "date": "2026-05-24",
