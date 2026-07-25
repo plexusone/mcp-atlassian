@@ -56,7 +56,7 @@ mcp-atlassian
 ```bash
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
 export OMNITOKEN_VAULT_URI=op://MyVault
-export OMNITOKEN_CREDENTIALS_NAME=confluence
+export OMNITOKEN_CREDENTIALS_NAME=atlassian
 export ATLASSIAN_URL="https://example.atlassian.net"
 mcp-atlassian
 ```
@@ -67,7 +67,7 @@ mcp-atlassian
 export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
 export OMNITOKEN_VAULT_URI=bw://org-id
-export OMNITOKEN_CREDENTIALS_NAME=confluence
+export OMNITOKEN_CREDENTIALS_NAME=atlassian
 export ATLASSIAN_URL="https://example.atlassian.net"
 mcp-atlassian
 ```
@@ -77,7 +77,7 @@ mcp-atlassian
 ```bash
 export KSM_TOKEN="US:..."
 export OMNITOKEN_VAULT_URI=keeper://
-export OMNITOKEN_CREDENTIALS_NAME=confluence
+export OMNITOKEN_CREDENTIALS_NAME=atlassian
 export ATLASSIAN_URL="https://example.atlassian.net"
 mcp-atlassian
 ```

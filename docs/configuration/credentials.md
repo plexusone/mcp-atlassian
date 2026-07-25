@@ -4,9 +4,9 @@ The Atlassian MCP Server supports multiple credential sources for authentication
 
 ## Option 1: Direct Credentials
 
-Provide your Confluence URL, username, and API token directly.
+Provide your Atlassian URL, username, and API token directly.
 
-### Confluence Cloud
+### Atlassian Cloud
 
 1. Go to [Atlassian Account Settings](https://id.atlassian.com/manage-profile/security/api-tokens)
 2. Create a new API token
