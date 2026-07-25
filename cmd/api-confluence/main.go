@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/plexusone/mcp-confluence/confluence"
-	"github.com/plexusone/mcp-confluence/storage"
+	"github.com/grokify/go-atlassian/confluence"
+	"github.com/grokify/go-atlassian/confluence/storage"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 // Package confluence provides an omniskill Skill for reading and writing Confluence pages.
 //
-// This package can be used standalone with mcp-confluence or composed
+// This package can be used standalone with mcp-atlassian or composed
 // with other skills in a multi-service MCP server.
 package confluence
 
@@ -9,8 +9,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/plexusone/mcp-confluence/confluence"
-	"github.com/plexusone/mcp-confluence/storage"
+	"github.com/grokify/go-atlassian/confluence"
+	"github.com/grokify/go-atlassian/confluence/storage"
 	"github.com/plexusone/omniskill/skill"
 )
 
