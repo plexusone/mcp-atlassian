@@ -1,6 +1,6 @@
 # Roadmap
 
-This document outlines planned features and improvements for mcp-confluence.
+This document outlines planned features and improvements for mcp-atlassian.
 
 ## Current Status (v0.2.0)
 
@@ -12,7 +12,7 @@ The v0.2.0 release provides:
 - **storage package**: IR types, render, parse, validate for Confluence Storage Format
 - **confluence package**: REST API client with IR integration
 - **skills/confluence package**: Composable omniskill module
-- **cmd/mcp-confluence**: Executable MCP server with CLI tools
+- **cmd/mcp-atlassian**: Executable MCP server with CLI tools
 
 ## Short-term (v0.3.0)
 

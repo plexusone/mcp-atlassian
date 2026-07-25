@@ -1,6 +1,6 @@
 # Claude Desktop Configuration
 
-Configure Claude Desktop to use the Confluence MCP Server.
+Configure Claude Desktop to use the Atlassian MCP Server.
 
 ## Configuration File Location
 
@@ -17,12 +17,12 @@ Configure Claude Desktop to use the Confluence MCP Server.
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "your-api-token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -34,13 +34,13 @@ Configure Claude Desktop to use the Confluence MCP Server.
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "OP_SERVICE_ACCOUNT_TOKEN": "ops_...",
         "OMNITOKEN_VAULT_URI": "op://MyVault",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -52,14 +52,14 @@ Configure Claude Desktop to use the Confluence MCP Server.
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "BW_ACCESS_TOKEN": "...",
         "BW_ORGANIZATION_ID": "...",
         "OMNITOKEN_VAULT_URI": "bw://org-id",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -71,13 +71,13 @@ Configure Claude Desktop to use the Confluence MCP Server.
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "KSM_TOKEN": "US:...",
         "OMNITOKEN_VAULT_URI": "keeper://",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -88,9 +88,9 @@ Configure Claude Desktop to use the Confluence MCP Server.
 
 | Variable | Description |
 |----------|-------------|
-| `CONFLUENCE_BASE_URL` | Confluence instance URL |
-| `CONFLUENCE_USERNAME` | Confluence username/email |
-| `CONFLUENCE_API_TOKEN` | Confluence API token |
+| `ATLASSIAN_URL` | Atlassian instance URL |
+| `ATLASSIAN_USERNAME` | Atlassian username/email |
+| `ATLASSIAN_API_TOKEN` | Atlassian API token |
 | `OMNITOKEN_VAULT_URI` | Vault URI (e.g., `op://MyVault`) |
 | `OMNITOKEN_CREDENTIALS_NAME` | Credential name in vault (default: `confluence`) |
 | `OP_SERVICE_ACCOUNT_TOKEN` | 1Password service account token |
@@ -100,17 +100,17 @@ Configure Claude Desktop to use the Confluence MCP Server.
 
 ## Multiple Servers
 
-You can run multiple MCP servers alongside Confluence:
+You can run multiple MCP servers alongside Atlassian:
 
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "token"
       }
     },
     "google": {
@@ -144,7 +144,7 @@ Common issues:
 1. **Binary not found**: Verify the path is correct
 2. **Credentials not found**: Check environment variables
 3. **Permission denied**: Ensure the binary is executable (`chmod +x`)
-4. **Invalid URL**: Check `CONFLUENCE_BASE_URL` format
+4. **Invalid URL**: Check `ATLASSIAN_URL` format
 
 ### Verifying Configuration
 
@@ -152,7 +152,7 @@ Test the server manually:
 
 ```bash
 # Should start and wait for input (Ctrl+C to exit)
-/path/to/mcp-confluence --base-url https://example.atlassian.net/wiki \
+/path/to/mcp-atlassian --base-url https://example.atlassian.net \
                         --username user@example.com \
                         --api-token your-token
 ```

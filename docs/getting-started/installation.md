@@ -9,21 +9,21 @@
 ## Install from Source
 
 ```bash
-go install github.com/plexusone/mcp-confluence/cmd/mcp-confluence@latest
+go install github.com/plexusone/mcp-atlassian/cmd/mcp-atlassian@latest
 ```
 
 ## Build from Source
 
 ```bash
-git clone https://github.com/plexusone/mcp-confluence.git
-cd mcp-confluence
-go build ./cmd/mcp-confluence
+git clone https://github.com/plexusone/mcp-atlassian.git
+cd mcp-atlassian
+go build ./cmd/mcp-atlassian
 ```
 
 ## Verify Installation
 
 ```bash
-mcp-confluence version
+mcp-atlassian version
 ```
 
 ## As a Library
@@ -31,7 +31,7 @@ mcp-confluence version
 You can also use the packages directly:
 
 ```bash
-go get github.com/plexusone/mcp-confluence
+go get github.com/plexusone/mcp-atlassian
 ```
 
 ### Available Packages

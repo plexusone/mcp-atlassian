@@ -1,34 +1,19 @@
-# Confluence MCP Server
+# Atlassian MCP Server
 
-An MCP server for Confluence with safe handling of Confluence Storage Format (XHTML).
-
-## The Problem
-
-When AI assistants interact with Confluence via MCP servers, they often corrupt pages - especially tables - because:
-
-1. LLMs generate Markdown or HTML5 instead of Confluence Storage XHTML
-2. Tables require specific structure (`<tbody>`, no `<thead>`)
-3. Macros need `ac:` namespaces
-4. Round-tripping through incorrect formats causes data loss
-
-## The Solution
-
-This library provides:
-
-- **Structured IR (Intermediate Representation)**: Work with Go types instead of raw XHTML
-- **Safe Rendering**: IR to valid Storage XHTML with proper structure
-- **Validation**: Catch forbidden tags, missing `<tbody>`, etc. before API calls
-- **MCP Server**: Tools that accept structured JSON, never raw XHTML
+An MCP server for Atlassian products (Confluence and Jira) built on the [omniskill](https://github.com/plexusone/omniskill) framework.
 
 ## Features
 
-- **8 MCP tools** for reading, creating, updating, and searching Confluence pages
-- **Structured content blocks** - JSON instead of raw XHTML
-- **Safe table handling** - Proper `<tbody>` structure, no `<thead>`
-- **Macro support** - Status badges, info panels, code blocks
+- **26 MCP tools** across Confluence and Jira
+- **Confluence**: Safe handling of Storage Format XHTML with structured content blocks
+- **Jira**: Search, create, update, clone, bulk operations, agile reports
+- **Shared Atlassian auth** - One set of credentials for both products
 - **Vault-backed credentials** - 1Password, Bitwarden, Keeper support
+- **OAuth 2.1 with PKCE** - Authorization code flow for multi-user deployments
 
 ## Available Tools
+
+### Confluence Tools
 
 | Tool | Description |
 |------|-------------|
@@ -41,22 +26,42 @@ This library provides:
 | `confluence_delete_page` | Delete a page |
 | `confluence_search_pages` | Search pages using CQL |
 
+### Jira Tools
+
+| Tool | Description |
+|------|-------------|
+| `jira_get_issue` | Get a Jira issue by key |
+| `jira_search` | Search issues using JQL |
+| `jira_create_issue` | Create a new issue |
+| `jira_update_issue` | Update issue fields |
+| `jira_add_comment` | Add a comment to an issue |
+| `jira_get_comments` | Get comments for an issue |
+| `jira_get_transitions` | Get available transitions |
+| `jira_transition_issue` | Transition an issue to a new status |
+| `jira_clone_issue` | Clone an issue with field mapping |
+| `jira_bulk_update` | Update multiple issues at once |
+| `jira_get_projects` | List available projects |
+| `jira_get_boards` | List agile boards |
+| `jira_get_sprints` | List sprints for a board |
+| `jira_move_to_sprint` | Move issues to a sprint |
+| `jira_velocity_report` | Sprint velocity report |
+| `jira_burndown_report` | Sprint burndown data |
+| `jira_worklog_report` | Time tracking summary |
+| `jira_cycle_time_report` | Issue cycle time analysis |
+
 ## Quick Start
 
 ```bash
 # Install
-go install github.com/plexusone/mcp-confluence/cmd/mcp-confluence@latest
+go install github.com/plexusone/mcp-atlassian/cmd/mcp-atlassian@latest
 
 # Configure credentials
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-export CONFLUENCE_USERNAME="user@example.com"
-export CONFLUENCE_API_TOKEN="your-api-token"
+export ATLASSIAN_URL="https://example.atlassian.net"
+export ATLASSIAN_USERNAME="user@example.com"
+export ATLASSIAN_API_TOKEN="your-api-token"
 
 # Run as MCP server
-mcp-confluence
-
-# Or use CLI mode
-mcp-confluence read-page 12345
+mcp-atlassian
 ```
 
 ## Next Steps

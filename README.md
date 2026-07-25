@@ -1,4 +1,4 @@
-# MCP Server for Confluence
+# MCP Server for Atlassian
 
 [![Go CI][go-ci-svg]][go-ci-url]
 [![Go Lint][go-lint-svg]][go-lint-url]
@@ -8,63 +8,56 @@
 [![Visualization][viz-svg]][viz-url]
 [![License][license-svg]][license-url]
 
- [go-ci-svg]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-ci.yaml/badge.svg?branch=main
- [go-ci-url]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-ci.yaml
- [go-lint-svg]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-lint.yaml/badge.svg?branch=main
- [go-lint-url]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-lint.yaml
- [go-sast-svg]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
- [go-sast-url]: https://github.com/plexusone/mcp-confluence/actions/workflows/go-sast-codeql.yaml
- [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/mcp-confluence
- [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/mcp-confluence
+ [go-ci-svg]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-ci.yaml/badge.svg?branch=main
+ [go-ci-url]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-ci.yaml
+ [go-lint-svg]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-lint.yaml/badge.svg?branch=main
+ [go-lint-url]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-lint.yaml
+ [go-sast-svg]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
+ [go-sast-url]: https://github.com/plexusone/mcp-atlassian/actions/workflows/go-sast-codeql.yaml
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/mcp-atlassian
+ [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/mcp-atlassian
  [docs-mkdoc-svg]: https://img.shields.io/badge/Go-dev%20guide-blue.svg
- [docs-mkdoc-url]: https://plexusone.dev/mcp-confluence
+ [docs-mkdoc-url]: https://plexusone.dev/mcp-atlassian
  [viz-svg]: https://img.shields.io/badge/Go-visualizaton-blue.svg
- [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fmcp-confluence
- [loc-svg]: https://tokei.rs/b1/github/plexusone/mcp-confluence
- [repo-url]: https://github.com/plexusone/mcp-confluence
+ [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fmcp-atlassian
+ [loc-svg]: https://tokei.rs/b1/github/plexusone/mcp-atlassian
+ [repo-url]: https://github.com/plexusone/mcp-atlassian
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/plexusone/mcp-confluence/blob/main/LICENSE
+ [license-url]: https://github.com/plexusone/mcp-atlassian/blob/main/LICENSE
 
-An MCP server for Confluence with safe handling of Confluence Storage Format (XHTML).
+An MCP server for Atlassian products (Confluence and Jira) built on the [omniskill](https://github.com/plexusone/omniskill) framework. Provides 26 tools for AI assistants to interact with Confluence pages and Jira issues.
 
-## The Problem
+## Features
 
-When AI assistants interact with Confluence via MCP servers, they often corrupt pages—especially tables—because:
-
-1. LLMs generate Markdown or HTML5 instead of Confluence Storage XHTML
-2. Tables require specific structure (`<tbody>`, no `<thead>`)
-3. Macros need `ac:` namespaces
-4. Round-tripping through incorrect formats causes data loss
-
-## The Solution
-
-This library provides:
-
-- **Structured IR (Intermediate Representation)**: Work with Go types instead of raw XHTML
-- **Safe Rendering**: IR → valid Storage XHTML with proper structure
-- **Validation**: Catch forbidden tags, missing `<tbody>`, etc. before API calls
-- **MCP Server**: Tools that accept structured JSON, never raw XHTML
+- **Confluence tools** — Read, create, update, and search Confluence pages with safe handling of Storage Format (XHTML)
+- **Jira tools** — Search, create, update, clone, and transition issues; agile boards, sprints, and reporting
+- **Shared Atlassian auth** — Single `ATLASSIAN_URL` credential for both products
+- **OAuth 2.1 with PKCE** — Serve over HTTP with authorization code flow and optional ngrok tunneling
+- **Vault-backed credentials** — 1Password, Bitwarden, Keeper support via [omnitoken](https://github.com/plexusone/omnitoken)
+- **Composable skills** — Each product is an independent omniskill that can be used standalone or combined
 
 ## Packages
 
 | Package | Description |
 |---------|-------------|
-| `storage` | IR types, render, parse, validate for Confluence Storage Format |
-| `confluence` | REST API client with IR integration |
-| `mcpserver` | MCP server implementation with structured tools |
+| `skills/confluence` | Confluence omniskill — 8 tools for page operations |
+| `skills/jira` | Jira omniskill — 18 tools for issue tracking, agile, and reporting |
+| `cmd/mcp-atlassian` | MCP server binary with stdio and HTTP modes |
+
+The underlying Confluence and Jira client libraries live in [Go-Atlassian](https://github.com/grokify/go-atlassian) (`confluence/` and `jira/` packages).
 
 ## Installation
 
 ### MCP Server Binary
 
 ```bash
-go install github.com/plexusone/mcp-confluence/cmd/mcp-confluence@latest
+go install github.com/plexusone/mcp-atlassian/cmd/mcp-atlassian@latest
 ```
 
 ### As a Library
 
 ```bash
-go get github.com/plexusone/mcp-confluence
+go get github.com/plexusone/mcp-atlassian
 ```
 
 ## Quick Start
@@ -72,7 +65,7 @@ go get github.com/plexusone/mcp-confluence
 ### Using the Storage Package
 
 ```go
-import "github.com/plexusone/mcp-confluence/storage"
+import "github.com/grokify/go-atlassian/confluence/storage"
 
 // Create a page with structured blocks
 page := &storage.Page{
@@ -109,7 +102,7 @@ if err := storage.Validate(xhtml); err != nil {
 ### Using the Confluence Client
 
 ```go
-import "github.com/plexusone/mcp-confluence/confluence"
+import "github.com/grokify/go-atlassian/confluence"
 
 // Create client
 auth := confluence.BasicAuth{
@@ -135,10 +128,10 @@ err = client.UpdatePageStorage(ctx, info.ID, page, info.Version, info.Title)
 
 ```bash
 # Install from GitHub
-go install github.com/plexusone/mcp-confluence/cmd/mcp-confluence@latest
+go install github.com/plexusone/mcp-atlassian/cmd/mcp-atlassian@latest
 
 # Or build from source
-go build -o mcp-confluence ./cmd/mcp-confluence
+go build -o mcp-atlassian ./cmd/mcp-atlassian
 ```
 
 ### Configuring with Claude Code
@@ -150,12 +143,12 @@ Claude Code supports three configuration scopes. See [Claude Code MCP docs](http
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "your-api-token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -167,12 +160,12 @@ Claude Code supports three configuration scopes. See [Claude Code MCP docs](http
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "your-api-token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -192,12 +185,12 @@ Add to your Claude Desktop settings (`~/Library/Application Support/Claude/claud
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "your-api-token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -209,13 +202,13 @@ Add to your Claude Desktop settings (`~/Library/Application Support/Claude/claud
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "OP_SERVICE_ACCOUNT_TOKEN": "ops_...",
         "OMNITOKEN_VAULT_URI": "op://MyVault",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -227,14 +220,14 @@ Add to your Claude Desktop settings (`~/Library/Application Support/Claude/claud
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "BW_ACCESS_TOKEN": "...",
         "BW_ORGANIZATION_ID": "...",
         "OMNITOKEN_VAULT_URI": "bw://org-id",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -246,13 +239,13 @@ Add to your Claude Desktop settings (`~/Library/Application Support/Claude/claud
 ```json
 {
   "mcpServers": {
-    "confluence": {
-      "command": "/path/to/mcp-confluence",
+    "atlassian": {
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
+        "ATLASSIAN_URL": "https://example.atlassian.net",
         "KSM_TOKEN": "US:...",
         "OMNITOKEN_VAULT_URI": "keeper://",
-        "OMNITOKEN_CREDENTIALS_NAME": "confluence"
+        "OMNITOKEN_CREDENTIALS_NAME": "atlassian"
       }
     }
   }
@@ -274,8 +267,8 @@ Use [omnitoken](https://github.com/plexusone/omnitoken) with vault backends for 
 
 ```bash
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
-mcp-confluence --vault op://MyVault --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault op://MyVault --credentials-name atlassian \
+               --base-url https://example.atlassian.net
 ```
 
 #### Bitwarden Example
@@ -283,27 +276,28 @@ mcp-confluence --vault op://MyVault --credentials-name confluence \
 ```bash
 export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
-mcp-confluence --vault bw://org-id --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault bw://org-id --credentials-name atlassian \
+               --base-url https://example.atlassian.net
 ```
 
 #### Keeper Example
 
 ```bash
 export KSM_TOKEN="US:..."
-mcp-confluence --vault keeper:// --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault keeper:// --credentials-name atlassian \
+               --base-url https://example.atlassian.net
 ```
 
 ### Environment Variables
 
 | Variable | Flag | Description |
 |----------|------|-------------|
-| `CONFLUENCE_BASE_URL` | `--base-url` | Your Confluence instance URL |
-| `CONFLUENCE_USERNAME` | `--username` | Your Confluence username (usually your email) |
-| `CONFLUENCE_API_TOKEN` | `--api-token` | API token from [Atlassian Account Settings](https://id.atlassian.com/manage-profile/security/api-tokens) |
+| `ATLASSIAN_URL` | `--base-url` | Your Atlassian instance URL (e.g., `https://example.atlassian.net`) |
+| `ATLASSIAN_USERNAME` | `--username` | Your Atlassian username (usually your email) |
+| `ATLASSIAN_API_TOKEN` | `--api-token` | API token from [Atlassian Account Settings](https://id.atlassian.com/manage-profile/security/api-tokens) |
+| `CONFLUENCE_BASE_URL` | - | Legacy: Confluence URL with `/wiki` suffix (falls back if `ATLASSIAN_URL` not set) |
 | `OMNITOKEN_VAULT_URI` | `--vault` | Vault URI for credentials |
-| `OMNITOKEN_CREDENTIALS_NAME` | `--credentials-name` | Name of credentials in vault (default: `confluence`) |
+| `OMNITOKEN_CREDENTIALS_NAME` | `--credentials-name` | Name of credentials in vault (default: `atlassian`) |
 | `OP_SERVICE_ACCOUNT_TOKEN` | - | 1Password service account token |
 | `BW_ACCESS_TOKEN` | - | Bitwarden access token |
 | `BW_ORGANIZATION_ID` | - | Bitwarden organization ID |
@@ -312,16 +306,18 @@ mcp-confluence --vault keeper:// --credentials-name confluence \
 ### Running Standalone (for testing)
 
 ```bash
-export CONFLUENCE_BASE_URL=https://example.atlassian.net/wiki
-export CONFLUENCE_USERNAME=user@example.com
-export CONFLUENCE_API_TOKEN=your-api-token
+export ATLASSIAN_URL=https://example.atlassian.net
+export ATLASSIAN_USERNAME=user@example.com
+export ATLASSIAN_API_TOKEN=your-api-token
 
-./mcp-confluence
+./mcp-atlassian
 ```
 
 ## MCP Tools
 
 The MCP server exposes these tools:
+
+### Confluence
 
 | Tool | Description |
 |------|-------------|
@@ -333,6 +329,29 @@ The MCP server exposes these tools:
 | `confluence_create_table` | Create a table block from structured data |
 | `confluence_delete_page` | Delete a page |
 | `confluence_search_pages` | Search pages using CQL |
+
+### Jira
+
+| Tool | Description |
+|------|-------------|
+| `jira_get_issue` | Get a Jira issue by key |
+| `jira_search` | Search issues using JQL |
+| `jira_create_issue` | Create a new issue |
+| `jira_update_issue` | Update issue fields |
+| `jira_add_comment` | Add a comment to an issue |
+| `jira_get_comments` | Get comments for an issue |
+| `jira_get_transitions` | Get available transitions |
+| `jira_transition_issue` | Transition an issue to a new status |
+| `jira_clone_issue` | Clone an issue with field mapping |
+| `jira_bulk_update` | Update multiple issues at once |
+| `jira_get_projects` | List available projects |
+| `jira_get_boards` | List agile boards |
+| `jira_get_sprints` | List sprints for a board |
+| `jira_move_to_sprint` | Move issues to a sprint |
+| `jira_velocity_report` | Sprint velocity report |
+| `jira_burndown_report` | Sprint burndown data |
+| `jira_worklog_report` | Time tracking summary |
+| `jira_cycle_time_report` | Issue cycle time analysis |
 
 ### When to Use XHTML Tools
 

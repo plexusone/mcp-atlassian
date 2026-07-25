@@ -17,7 +17,7 @@ style: |
 
 <!-- _paginate: false -->
 
-# mcp-confluence
+# mcp-atlassian
 
 ## Building a Reliable MCP Server for Confluence 🔧
 
@@ -216,7 +216,7 @@ Use the right tool for the job 🔧
 | Tables break on round-trip | Always use XHTML for edits ⚠️ | Multiple tools > one tool 🧰 |
 | No pre-flight checks | Validate before API calls ✅ | Catch errors early, not in production |
 
-🔗 **github.com/plexusone/mcp-confluence**
+🔗 **github.com/plexusone/mcp-atlassian**
 
 ---
 

@@ -8,9 +8,9 @@ All command-line flags can be set via environment variables.
 
 | Variable | Flag | Description |
 |----------|------|-------------|
-| `CONFLUENCE_BASE_URL` | `--base-url` | Confluence instance URL |
-| `CONFLUENCE_USERNAME` | `--username` | Confluence username/email |
-| `CONFLUENCE_API_TOKEN` | `--api-token` | Confluence API token |
+| `ATLASSIAN_URL` | `--base-url` | Atlassian instance URL |
+| `ATLASSIAN_USERNAME` | `--username` | Atlassian username/email |
+| `ATLASSIAN_API_TOKEN` | `--api-token` | Atlassian API token |
 | `OMNITOKEN_VAULT_URI` | `--vault` | Vault URI for credentials |
 | `OMNITOKEN_CREDENTIALS_NAME` | `--credentials-name` | Name of credentials in vault |
 
@@ -30,14 +30,14 @@ Command-line flags take precedence over environment variables.
 
 ```bash
 # Environment variable is used
-export CONFLUENCE_BASE_URL=https://example.atlassian.net/wiki
-mcp-confluence
-# Uses: https://example.atlassian.net/wiki
+export ATLASSIAN_URL=https://example.atlassian.net
+mcp-atlassian
+# Uses: https://example.atlassian.net
 
 # Flag overrides environment
-export CONFLUENCE_BASE_URL=https://example.atlassian.net/wiki
-mcp-confluence --base-url https://other.atlassian.net/wiki
-# Uses: https://other.atlassian.net/wiki
+export ATLASSIAN_URL=https://example.atlassian.net
+mcp-atlassian --base-url https://other.atlassian.net
+# Uses: https://other.atlassian.net
 ```
 
 ## Examples
@@ -45,10 +45,10 @@ mcp-confluence --base-url https://other.atlassian.net/wiki
 ### Direct Credentials
 
 ```bash
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-export CONFLUENCE_USERNAME="user@example.com"
-export CONFLUENCE_API_TOKEN="your-api-token"
-mcp-confluence
+export ATLASSIAN_URL="https://example.atlassian.net"
+export ATLASSIAN_USERNAME="user@example.com"
+export ATLASSIAN_API_TOKEN="your-api-token"
+mcp-atlassian
 ```
 
 ### 1Password
@@ -57,8 +57,8 @@ mcp-confluence
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
 export OMNITOKEN_VAULT_URI=op://MyVault
 export OMNITOKEN_CREDENTIALS_NAME=confluence
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-mcp-confluence
+export ATLASSIAN_URL="https://example.atlassian.net"
+mcp-atlassian
 ```
 
 ### Bitwarden
@@ -68,8 +68,8 @@ export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
 export OMNITOKEN_VAULT_URI=bw://org-id
 export OMNITOKEN_CREDENTIALS_NAME=confluence
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-mcp-confluence
+export ATLASSIAN_URL="https://example.atlassian.net"
+mcp-atlassian
 ```
 
 ### Keeper
@@ -78,8 +78,8 @@ mcp-confluence
 export KSM_TOKEN="US:..."
 export OMNITOKEN_VAULT_URI=keeper://
 export OMNITOKEN_CREDENTIALS_NAME=confluence
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-mcp-confluence
+export ATLASSIAN_URL="https://example.atlassian.net"
+mcp-atlassian
 ```
 
 ## Shell Configuration
@@ -89,10 +89,10 @@ mcp-confluence
 Add to `~/.bashrc` or `~/.zshrc`:
 
 ```bash
-# Confluence MCP Server credentials
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-export CONFLUENCE_USERNAME="user@example.com"
-export CONFLUENCE_API_TOKEN="your-api-token"
+# Atlassian MCP Server credentials
+export ATLASSIAN_URL="https://example.atlassian.net"
+export ATLASSIAN_USERNAME="user@example.com"
+export ATLASSIAN_API_TOKEN="your-api-token"
 ```
 
 ### Fish
@@ -100,7 +100,7 @@ export CONFLUENCE_API_TOKEN="your-api-token"
 Add to `~/.config/fish/config.fish`:
 
 ```fish
-set -gx CONFLUENCE_BASE_URL "https://example.atlassian.net/wiki"
-set -gx CONFLUENCE_USERNAME "user@example.com"
-set -gx CONFLUENCE_API_TOKEN "your-api-token"
+set -gx ATLASSIAN_URL "https://example.atlassian.net"
+set -gx ATLASSIAN_USERNAME "user@example.com"
+set -gx ATLASSIAN_API_TOKEN "your-api-token"
 ```

@@ -13,11 +13,11 @@ Add to your Claude Desktop configuration file:
 {
   "mcpServers": {
     "confluence": {
-      "command": "/path/to/mcp-confluence",
+      "command": "/path/to/mcp-atlassian",
       "env": {
-        "CONFLUENCE_BASE_URL": "https://example.atlassian.net/wiki",
-        "CONFLUENCE_USERNAME": "user@example.com",
-        "CONFLUENCE_API_TOKEN": "your-api-token"
+        "ATLASSIAN_URL": "https://example.atlassian.net",
+        "ATLASSIAN_USERNAME": "user@example.com",
+        "ATLASSIAN_API_TOKEN": "your-api-token"
       }
     }
   }
@@ -43,19 +43,19 @@ The server also works as a CLI tool for testing and scripting:
 
 ```bash
 # Read a page as structured blocks
-mcp-confluence read-page 12345
+mcp-atlassian read-page 12345
 
 # Read a page as raw XHTML
-mcp-confluence read-page-xhtml 12345
+mcp-atlassian read-page-xhtml 12345
 
 # Search for pages
-mcp-confluence search-pages "type=page AND text~'authentication'" --limit 10
+mcp-atlassian search-pages "type=page AND text~'authentication'" --limit 10
 
 # Delete a page
-mcp-confluence delete-page 12345
+mcp-atlassian delete-page 12345
 
 # Pretty print output
-mcp-confluence read-page 12345 --output pretty
+mcp-atlassian read-page 12345 --output pretty
 ```
 
 ## Example Workflows
@@ -84,7 +84,7 @@ Claude: I'll create a new meeting notes page.
 [Uses confluence_create_page tool with structured blocks]
 
 Created page "Meeting Notes 2025-01-15" with ID 67890
-URL: https://example.atlassian.net/wiki/spaces/TEAM/pages/67890
+URL: https://example.atlassian.net/spaces/TEAM/pages/67890
 ```
 
 ### Update a Table

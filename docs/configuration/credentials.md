@@ -1,6 +1,6 @@
 # Credentials
 
-The Confluence MCP Server supports multiple credential sources for authentication.
+The Atlassian MCP Server supports multiple credential sources for authentication.
 
 ## Option 1: Direct Credentials
 
@@ -15,7 +15,7 @@ Provide your Confluence URL, username, and API token directly.
 ### Usage
 
 ```bash
-mcp-confluence --base-url https://example.atlassian.net/wiki \
+mcp-atlassian --base-url https://example.atlassian.net \
                --username user@example.com \
                --api-token your-api-token
 ```
@@ -23,10 +23,10 @@ mcp-confluence --base-url https://example.atlassian.net/wiki \
 Or with environment variables:
 
 ```bash
-export CONFLUENCE_BASE_URL="https://example.atlassian.net/wiki"
-export CONFLUENCE_USERNAME="user@example.com"
-export CONFLUENCE_API_TOKEN="your-api-token"
-mcp-confluence
+export ATLASSIAN_URL="https://example.atlassian.net"
+export ATLASSIAN_USERNAME="user@example.com"
+export ATLASSIAN_API_TOKEN="your-api-token"
+mcp-atlassian
 ```
 
 ## Option 2: Vault-Backed Credentials
@@ -48,8 +48,8 @@ Use [omnitoken](https://github.com/plexusone/omnitoken) with vault backends for 
 
 ```bash
 export OP_SERVICE_ACCOUNT_TOKEN="ops_..."
-mcp-confluence --vault op://MyVault --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault op://MyVault --credentials-name confluence \
+               --base-url https://example.atlassian.net
 ```
 
 ### Bitwarden
@@ -57,16 +57,16 @@ mcp-confluence --vault op://MyVault --credentials-name confluence \
 ```bash
 export BW_ACCESS_TOKEN="..."
 export BW_ORGANIZATION_ID="..."
-mcp-confluence --vault bw://org-id --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault bw://org-id --credentials-name confluence \
+               --base-url https://example.atlassian.net
 ```
 
 ### Keeper
 
 ```bash
 export KSM_TOKEN="US:..."
-mcp-confluence --vault keeper:// --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault keeper:// --credentials-name confluence \
+               --base-url https://example.atlassian.net
 ```
 
 ### File Vault
@@ -74,8 +74,8 @@ mcp-confluence --vault keeper:// --credentials-name confluence \
 For local development:
 
 ```bash
-mcp-confluence --vault file:///path/to/secrets --credentials-name confluence \
-               --base-url https://example.atlassian.net/wiki
+mcp-atlassian --vault file:///path/to/secrets --credentials-name confluence \
+               --base-url https://example.atlassian.net
 ```
 
 ## Credential Format
@@ -88,7 +88,7 @@ When using vault storage, credentials should be in goauth format:
   "basic": {
     "username": "user@example.com",
     "password": "your-api-token",
-    "serverURL": "https://example.atlassian.net/wiki"
+    "serverURL": "https://example.atlassian.net"
   }
 }
 ```
@@ -99,7 +99,7 @@ Or with OAuth2/Bearer token:
 {
   "type": "headerquery",
   "headerQuery": {
-    "serverURL": "https://example.atlassian.net/wiki",
+    "serverURL": "https://example.atlassian.net",
     "header": {
       "Authorization": ["Bearer your-token"]
     }

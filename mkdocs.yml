@@ -1,8 +1,8 @@
-site_name: Confluence MCP Server
-site_description: MCP server for Confluence with safe handling of Storage Format
-site_url: https://plexusone.github.io/mcp-confluence
-repo_url: https://github.com/plexusone/mcp-confluence
-repo_name: plexusone/mcp-confluence
+site_name: Atlassian MCP Server
+site_description: MCP server for Atlassian products (Confluence and Jira)
+site_url: https://plexusone.github.io/mcp-atlassian
+repo_url: https://github.com/plexusone/mcp-atlassian
+repo_name: plexusone/mcp-atlassian
 
 theme:
   name: material
@@ -67,4 +67,4 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/plexusone/mcp-confluence
+      link: https://github.com/plexusone/mcp-atlassian

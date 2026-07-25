@@ -1,6 +1,6 @@
 # Tools Reference
 
-This server provides 8 tools for working with Confluence pages.
+This server provides 26 tools for working with Confluence pages and Jira issues.
 
 ## Reading Pages
 
