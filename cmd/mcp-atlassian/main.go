@@ -90,15 +90,15 @@ var serveCmd = &cobra.Command{
 }
 
 var (
-	httpAddr         string
-	httpPath         string
-	oauthUser        string
-	oauthPassword    string
-	oauthClientID    string
-	oauthClientSec   string
-	oauthDebug       bool
-	ngrokAuthtoken   string
-	ngrokDomain      string
+	httpAddr       string
+	httpPath       string
+	oauthUser      string
+	oauthPassword  string
+	oauthClientID  string
+	oauthClientSec string
+	oauthDebug     bool
+	ngrokAuthtoken string
+	ngrokDomain    string
 )
 
 var serveHTTPCmd = &cobra.Command{
