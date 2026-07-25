@@ -29,12 +29,12 @@ An MCP server for Atlassian products (Confluence and Jira) built on the [omniski
 
 ## Features
 
-- **Confluence tools** — Read, create, update, and search Confluence pages with safe handling of Storage Format (XHTML)
-- **Jira tools** — Search, create, update, clone, and transition issues; agile boards, sprints, and reporting
-- **Shared Atlassian auth** — Single `ATLASSIAN_URL` credential for both products
-- **OAuth 2.1 with PKCE** — Serve over HTTP with authorization code flow and optional ngrok tunneling
-- **Vault-backed credentials** — 1Password, Bitwarden, Keeper support via [omnitoken](https://github.com/plexusone/omnitoken)
-- **Composable skills** — Each product is an independent omniskill that can be used standalone or combined
+- 📄 **Confluence tools** — Read, create, update, and search Confluence pages with safe handling of Storage Format (XHTML)
+- 🎫 **Jira tools** — Search, create, update, clone, and transition issues; agile boards, sprints, and reporting
+- 🔑 **Shared Atlassian auth** — Single `ATLASSIAN_URL` credential for both products
+- 🔐 **OAuth 2.1 with PKCE** — Serve over HTTP with authorization code flow and optional ngrok tunneling
+- 🏦 **Vault-backed credentials** — 1Password, Bitwarden, Keeper support via [omnitoken](https://github.com/plexusone/omnitoken)
+- 🧩 **Composable skills** — Each product is an independent omniskill that can be used standalone or combined
 
 ## Packages
 
