@@ -1,8 +1,8 @@
 .PHONY: build test lint install clean
 
 # Build variables
-BINARY_NAME=mcp-confluence
-BUILD_DIR=./cmd/mcp-confluence
+BINARY_NAME=mcp-atlassian
+BUILD_DIR=./cmd/mcp-atlassian
 INSTALL_PATH=/usr/local/bin
 
 # Default target
