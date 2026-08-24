@@ -142,7 +142,7 @@ var readPageCmd = &cobra.Command{
 	Long:  "Read a Confluence page and return its content as structured blocks.",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return runTool("read_page", map[string]any{
+		return runTool("confluence_read_page", map[string]any{
 			"page_id": args[0],
 		})
 	},
@@ -154,7 +154,7 @@ var readPageXHTMLCmd = &cobra.Command{
 	Long:  "Read a Confluence page and return its content as raw XHTML.",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return runTool("read_page_xhtml", map[string]any{
+		return runTool("confluence_read_page_xhtml", map[string]any{
 			"page_id": args[0],
 		})
 	},
@@ -172,7 +172,7 @@ var searchPagesCmd = &cobra.Command{
 		if searchLimit > 0 {
 			params["limit"] = searchLimit
 		}
-		return runTool("search_pages", params)
+		return runTool("confluence_search_pages", params)
 	},
 }
 
@@ -182,7 +182,7 @@ var deletePageCmd = &cobra.Command{
 	Long:  "Delete a Confluence page by its ID.",
 	Args:  cobra.ExactArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return runTool("delete_page", map[string]any{
+		return runTool("confluence_delete_page", map[string]any{
 			"page_id": args[0],
 		})
 	},
