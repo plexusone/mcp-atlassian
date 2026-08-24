@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/andygrunwald/go-jira v1.17.0
 	github.com/modelcontextprotocol/go-sdk v1.7.0
-	github.com/plexusone/omniskill v0.10.0
+	github.com/plexusone/omniskill v0.12.0
 	github.com/plexusone/omnitoken v0.1.0
 	github.com/plexusone/omnivault-desktop v0.1.0
 	github.com/spf13/cobra v1.10.2
@@ -93,7 +93,7 @@ require (
 	golang.ngrok.com/muxado/v2 v2.0.1 // indirect
 	golang.ngrok.com/ngrok v1.13.0 // indirect
 	golang.org/x/crypto v0.54.0 // indirect
-	golang.org/x/exp v0.0.0-20260718201538-764159d718ef // indirect
+	golang.org/x/exp v0.0.0-20260727155853-b88d891fe743 // indirect
 	golang.org/x/net v0.57.0 // indirect
 	golang.org/x/oauth2 v0.36.0 // indirect
 	golang.org/x/sync v0.22.0 // indirect
