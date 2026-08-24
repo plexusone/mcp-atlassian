@@ -13,7 +13,7 @@ func main() {
 	// Create client with credentials from environment
 	baseURL := os.Getenv("CONFLUENCE_BASE_URL")
 	if baseURL == "" {
-		baseURL = "https://saviyntars.atlassian.net/wiki"
+		log.Fatal("CONFLUENCE_BASE_URL environment variable is required")
 	}
 	username := os.Getenv("CONFLUENCE_USERNAME")
 	if username == "" {
