@@ -34,6 +34,11 @@ func (s *Skill) Description() string {
 	return "Read, create, update, and search Confluence pages using structured content blocks"
 }
 
+// Version returns the skill version.
+func (s *Skill) Version() string {
+	return "0.3.0"
+}
+
 // Init initializes the skill (no-op as client is injected).
 func (s *Skill) Init(ctx context.Context) error {
 	return nil

@@ -26,6 +26,7 @@ func New(client *jira.Client) *Skill {
 
 func (s *Skill) Name() string               { return "jira" }
 func (s *Skill) Description() string        { return "Jira issue tracking, agile boards, and reporting" }
+func (s *Skill) Version() string            { return "0.3.0" }
 func (s *Skill) Init(context.Context) error { return nil }
 func (s *Skill) Close() error               { return nil }
 
